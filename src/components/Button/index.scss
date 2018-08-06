@@ -1,0 +1,95 @@
+.widget_button {
+    user-select: none;
+    display: inline-block;
+    border-radius: 2px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.widget_button_disabled {
+    opacity: 0.7;
+    &:hover {
+        cursor: default;
+    }
+}
+
+.widget_button_blue {
+    background-color: #488ff9;
+    color: #fff;
+}
+
+.widget_button_red {
+    background-color: #ff4d4d;
+    color: #fff;
+}
+
+.widget_button_green {
+    background-color: #2dc888;
+    color: #fff;
+}
+
+.iconWrapper {
+    display: inline-block;
+    background-size: 100% 100%;
+    vertical-align: middle;
+    margin: 0 -5px 0 7px;
+}
+
+.leftIconWrapper {
+    margin: 0 7px 0 -5px;
+}
+
+.widget_button_large {
+    padding: 0 18px;
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+
+    .iconWrapper {
+        width: 20px;
+        height: 20px;
+        line-height: 32px;
+    }
+}
+.widget_button_normal {
+    padding: 0 16px;
+    font-size: 14px;
+    height: 32px;
+    line-height: 32px;
+    .iconWrapper {
+        width: 20px;
+        height: 20px;
+        line-height: 32px;
+    }
+}
+.widget_button_small {
+    padding: 0 10px;
+    font-size: 14px;
+    height: 24px;
+    line-height: 24px;
+
+    .iconWrapper {
+        width: 20px;
+        height: 20px;
+        line-height: 24px;
+    }
+}
+
+
+//button group
+.buttonGroupWrapper {
+    margin: 0 auto;
+    width: 250px;
+    text-align: left; 
+    li {
+        padding: 10px 0;
+        .spanLabel {
+            text-align: left;
+        }
+        .icon {
+            background-image: url('./icon.png');
+            background-repeat: no-repeat;
+        }
+    }
+}

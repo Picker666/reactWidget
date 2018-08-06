@@ -1,0 +1,36 @@
+.mainSec {
+    width: 80%;
+    min-width: 1000px;
+    margin: 0 auto;
+    height: 500px;
+    background-color: lightblue;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    .navStyle {
+        padding:20px 0 0 25px;
+        height: 100%;
+        width: 200px;
+        box-sizing: border-box;
+        background-color: #fefefe;
+        float: left;
+
+        .resetNavLink{
+            text-decoration: none;
+            padding: 5px 10px;
+            color: #666;
+            display: block;
+        }
+
+        .navActive {
+            color: blue;
+            text-decoration: underline;
+        }
+    }
+
+    .routerContent {
+       margin-left: 220px;
+       overflow: hidden;
+       padding-top: 30px;
+    }
+}
