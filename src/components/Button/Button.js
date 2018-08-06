@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import classNames from 'classname';
 import styles from './index.scss';
 
@@ -9,7 +9,7 @@ class Button extends Component {
     // }
 
     render () {
-        const { name, theme, size, onClick, color, disabled=false, icon: {align, iconStyle} } = this.props;
+        const { name, theme, size, onClick, color, disabled=false, icon: {align, iconStyle}, children } = this.props;
         return <a
             className={classNames(
                 styles['widget_button'],
@@ -21,7 +21,7 @@ class Button extends Component {
             onClick={(event) => {!disabled && onClick(event)}}
         >
             {iconStyle && align === 'left' && <span className={classNames(styles.iconWrapper, styles.leftIconWrapper, iconStyle)}></span>}
-            {name}
+            {name || children}
             {iconStyle && align === 'right' && <span className={classNames(styles.iconWrapper, iconStyle)}></span>}
         </a>
     }
@@ -29,6 +29,7 @@ class Button extends Component {
 
 Button.propTypes = {
     name: PropTypes.string,
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     size: PropTypes.string,
     color: PropTypes.string,
     onClick: PropTypes.func,

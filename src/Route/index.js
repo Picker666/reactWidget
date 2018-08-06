@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect, NavLink } from 'react-router-dom';
-import { Home, Company, Park, ButtonGroup } from '../components';
+import { Home, Company, Park, ButtonGroup, popUpInstruction } from '../components';
 import styles from './index.scss';
 
 class Main extends Component {
@@ -8,7 +8,7 @@ class Main extends Component {
         super(props);
         this.state = {
             data: [{ name: 'Home', path: '/home' },{ name: 'Company', path: '/company' },
-            { name: 'Park', path: '/park' },{ name: 'Button', path: '/button' }]
+            { name: 'Park', path: '/park' },{ name: 'Button', path: '/button' }, { name: 'PopUp', path: '/popUp' }]
         }
     };
     componentDidMount () {
@@ -39,6 +39,7 @@ class Main extends Component {
                         <Route path='/company' component={Company} />
                         <Route exact path='/park' component={Park} />
                         <Route exact path='/button' component={ButtonGroup} />
+                        <Route exact path='/popUp' component={popUpInstruction} />
                         <Redirect to='/home' />
                     </Switch>
                 </section>
