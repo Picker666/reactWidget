@@ -9,7 +9,7 @@ import Park from './Park';
 import { ButtonGroup,
     Button,
     popUpInstruction,
-    PopUp } from 'ReactWidget';
+    PopUp } from 'picker_react_widget';
 
 export {
     Home,
