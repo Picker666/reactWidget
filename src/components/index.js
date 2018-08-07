@@ -1,9 +1,15 @@
 import Home from './Home';
 import Company from './Company';
 import Park from './Park';
-import ButtonGroup from './Button';
-import Button from './Button/Button';
-import popUpInstruction from './PopUp';
+// import ButtonGroup from './Button';
+// import Button from './Button/Button';
+// import popUpInstruction from './PopUp';
+// import PopUp from './PopUp/PopUp';
+
+import { ButtonGroup,
+    Button,
+    popUpInstruction,
+    PopUp } from 'ReactWidget';
 
 export {
     Home,
@@ -11,5 +17,6 @@ export {
     Park,
     ButtonGroup,
     Button,
-    popUpInstruction
+    popUpInstruction,
+    PopUp
 };
