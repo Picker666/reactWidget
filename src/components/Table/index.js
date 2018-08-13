@@ -8,8 +8,8 @@ class TableExhibition extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick () {
-        console.log('========');
+    handleClick (data) {
+        console.log(data);
     };
 
     render () {
@@ -39,7 +39,13 @@ class TableExhibition extends Component {
             type: 'show', lists: [{name: '232', onClick: this.handleClick}, {name: '===', onClick: this.handleClick}]
             }},
             {storageSize: '666', modifyTime: '2008-05-06', endTime: '2018-05-06', desc: {
-                type: 'dropDown', label: 'more', lists: [{name: '==-', onClick: this.handleClick}, {name: 'adf', onClick: this.handleClick}]
+                type: 'dropDown', label: 'more', lists: [{name: 'test1 for self', onClick: this.handleClick}, {name: 'adf', onClick: this.handleClick}]
+            }},
+            {storageSize: '777', modifyTime: '2008-05-06', endTime: '2018-05-06', desc: {
+                type: 'dropDown', label: 'more', lists: [{name: 'test2 for self', onClick: this.handleClick}, {name: 'adf', onClick: this.handleClick}]
+            }},
+            {storageSize: '888', modifyTime: '2008-05-06', endTime: '2018-05-06', desc: {
+                type: 'dropDown', label: 'more', lists: [{name: 'test3 for self', onClick: this.handleClick}, {name: 'adf', onClick: this.handleClick}]
             }},
             {storageSize: '33333333333333333333331324567890-1234567890', modifyTime: '2008-05-06', endTime: '2018-05-06', desc: '666' }];
         return <div>

@@ -1,4 +1,50 @@
 
+ @mixin  itemBtn {
+    color: #488ff9;
+    padding: 10px 5px;
+    &:hover {
+        cursor: pointer;
+    }
+
+    .down {
+        background-image: url('./down.png');
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background-size: 100%;
+        margin-left: 6px;
+        margin-bottom: -2px;
+    }
+
+    .dropDownWrapper {
+        position: relative;
+        top: -11px;
+
+        .dropDown {
+            position: absolute;
+            left: 6px;
+            top: 20px;
+            background-color: #fff;
+            padding: 5px 0;
+            z-index: 999999;
+            border-radius: 3px;
+            box-shadow: 0 0 10px #ccc;
+            color: #262a30;
+
+            .dropDownItem {
+                display: block;
+                padding: 5px 10px;
+                white-space: nowrap;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: #E6F7FF;
+                }
+            }
+        }
+    }
+ }
+
 .table {
     color: #262a30;
     line-height: 1.5;
@@ -22,48 +68,28 @@
             font-size: 14px;
             padding: 14px 8px;
             display: inline-block;
+            box-sizing: border-box;
+            vertical-align: middle;
+
+            .itemBtn {
+                @include itemBtn;
+            }
+
+        }
+
+        .overflow {
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
             box-sizing: border-box;
-
-            .itemBtn {
-                color: #488ff9;
-                padding: 0 5px;
-                position: relative;
-                &:hover {
-                    cursor: pointer;
-                }
-
-                .down {
-                    background-image: url('./down.png');
-                    display: inline-block;
-                    width: 16px;
-                    height: 16px;
-                    background-size: 100%;
-                    margin-left: 6px;
-                    margin-bottom: -2px;
-                }
-
-                .dropDown {
-                    position: absolute;
-                    left: 6px;
-                    top: 20px;
-                    background-color: #eee;
-                    z-index: 999999;
-                    padding: 5px 10px;
-                    border-radius: 3px;
-
-                    .dropDownItem {
-                        display: block;
-                    }
-                }
-            }
-
         }
     }
 
     .headerRow {
         background-color: #f1f3f6;
     }
+}
+
+.itemBtn {
+    @include itemBtn;
 }

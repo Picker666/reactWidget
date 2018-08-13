@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ClassNames from 'classnames';
+import ItemDropDown from './ItemDropDown';
 
 import styles from './index.scss';
 
@@ -11,7 +12,6 @@ class Table extends Component {
         this.getColumns = this.getColumns.bind(this);
         this.getTableBody = this.getTableBody.bind(this);
         this.getColumnContents = this.getColumnContents.bind(this);
-        this.dropDown = this.dropDown.bind(this);
     }
 
     // componentDidMount () {
@@ -46,21 +46,20 @@ class Table extends Component {
     getColumns (itemData, i) {
         const { headerData, themes } = this.props;
         const columns = headerData.map((item, index) => {
-                let _itemData = itemData[item.dataIndex];
-                if (Object.prototype.toString.call(_itemData) === '[object Object]') {
-                    _itemData = this.getColumnContents(_itemData);
-                };
+            let _itemData = itemData[item.dataIndex];
+            let itemProps = {
+                key: `${i}_${index}`,
+                className: ClassNames(styles.item, styles.overflow, themes.item),
+                style: { width: this.width },
+                onMouseOver: this.handleMouseOver
+            };
+            if (Object.prototype.toString.call(_itemData) === '[object Object]') {
+                _itemData = this.getColumnContents(_itemData);
+                itemProps = {...itemProps, className: ClassNames(styles.item, themes.item)};
+            };
 
-                return <span
-                    key={`${i}_${index}`}
-                    className={ClassNames(styles.item, themes.item)}
-                    style={{ width: this.width }}
-                    onMouseOver={this.handleMouseOver}
-                >
-                    {_itemData}
-                </span>
-            }
-        );
+            return <span {...itemProps}>{_itemData}</span>
+        });
 
         return columns;
     }
@@ -68,11 +67,11 @@ class Table extends Component {
     getColumnContents (itemData) {
         const { themes } = this.props;
         let itemList = [];
-        const { lists, type, label } = itemData;
+        const { lists, type } = itemData;
         if (type === 'show') {
             itemList = lists.map(item => {
                 return <span
-                    onClick={item.onClick}
+                    onClick={() => {item.onClick(item)}}
                     className={ClassNames(styles.itemBtn, themes.itemBtn)}
                     key={item.name}
                 >
@@ -80,32 +79,11 @@ class Table extends Component {
                 </span>;
             })
         } else if (type === 'dropDown') {
-            itemList = <span
-                    className={ClassNames(styles.itemBtn, themes.itemBtn)}
-                    onClick={(event) => {this.dropDown(event, lists)}}
-                >
-                    {label}
-                    <span className={ClassNames(styles.down, themes.down)} />
-                    <span className={ClassNames(styles.dropDown, themes.dropDown)}>
-                        {
-                            lists.map(item =>  <span
-                                    onClick={item.onClick}
-                                    className={ClassNames(styles.dropDownItem, themes.dropDownItem)}
-                                    key={item.name}
-                                >
-                                    {item.name}
-                                </span>
-                            )
-                        }
-                    </span>
-                </span>;
+            const itemDropDownProps = {...itemData, themes};
+            itemList = <ItemDropDown { ...itemDropDownProps }/>
         }
 
         return itemList;
-    }
-
-    dropDown (event, lists) {
-
     }
 
     getTableBody () {
