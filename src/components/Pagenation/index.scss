@@ -1,0 +1,112 @@
+@mixin currentPage {
+    color: #488ff9;
+    border-color: #488ff9;
+}
+@mixin page {
+    background-color: #fff;
+    &:hover {
+        @include currentPage;
+        cursor: pointer;
+    }
+}
+
+@mixin trunAround {
+    height: 20px;
+    width: 10px;
+    background-size: 70%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+@mixin pageBtn {
+    float: left;
+    list-style-type: none;
+    padding: 5px 10px;
+    border: solid 1px #d9d9d9;
+    margin: 0px 6px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.pagenation {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+
+    // &:after {
+    //     content: '';
+    //     clear: both;
+    //     zoom: 1;
+    //     visibility: hidden;
+    //     display: inline-block;
+    // }
+
+    .page {
+        @include page;
+        @include pageBtn;
+
+        .inputPage {
+            width: 50px;
+            margin: 0 6px;
+            vertical-align: bottom;
+        }
+    }
+
+    .currentPage {
+        @include currentPage;
+    }
+
+    .preview {
+        @include page;
+        @include trunAround;
+        background-image: url('./images/left.png');
+        &:hover {
+            background-image: url('./images/left_active.png');
+        }
+    }
+    .preview_disable {
+        @include page;
+        @include trunAround;
+        background-image: url('./images/left.png');
+        &:hover {
+            cursor: not-allowed;
+            border-color: #d9d9d9;
+        }
+    }
+
+    .left_more {
+        @include page;
+        @include trunAround;
+        background-image: url('./images/more.png');
+        &:hover {
+            background-image: url('./images/doubleleft.png');
+        }
+    }
+    .right_more {
+        @include page;
+        @include trunAround;
+        background-image: url('./images/more.png');
+        &:hover {
+            background-image: url('./images/doubleright.png');
+        }
+    }
+
+    .next {
+        @include page;
+        @include trunAround;
+        background-image: url('./images/right.png');
+        &:hover {
+            background-image: url('./images/right_active.png');
+        }
+    }
+    .next_disable {
+        @include page;
+        @include trunAround;
+        background-image: url('./images/right.png');
+        &:hover {
+            cursor: not-allowed;
+            border-color: #d9d9d9;
+        }
+    }
+}

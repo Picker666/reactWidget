@@ -6,13 +6,19 @@ import Park from './Park';
 // import Button from './Button/Button';
 // import popUpInstruction from './PopUp';
 // import PopUp from './PopUp/PopUp';
-import Table from './Table/Table';
-import TableExhibition from './Table';
+// import Table from './Table/Table';
+// import TableExhibition from './Table';
+// import Paganation from './Pagenation/Pagenation';
+// import PaganationExhibition from './Pagenation';
 
 import { ButtonGroup,
     Button,
     popUpInstruction,
-    PopUp } from 'picker_react_widget';
+    PopUp,
+    TableExhibition,
+    Table,
+    PaganationExhibition,
+    Paganation } from 'picker_react_widget';
 
 export {
     Home,
@@ -23,5 +29,7 @@ export {
     popUpInstruction,
     PopUp,
     TableExhibition,
-    Table
+    Table,
+    PaganationExhibition,
+    Paganation
 };
